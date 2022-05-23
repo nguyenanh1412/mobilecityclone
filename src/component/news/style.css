@@ -1,0 +1,31 @@
+.title {
+    font-weight: 700;
+    padding: 15px 0;
+}
+.paragrap{
+    text-align: justify;
+}
+.time {
+    font-weight: 700;
+}
+.header{
+    color: #c69a39;
+    font-weight: 700;
+}
+.view{
+    padding-bottom: 25px;
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-weight: 700;
+}
+.view>i{
+    padding: 0 5px;
+}
+.poiter{
+    cursor: pointer;
+}
+.newTechnology{
+    margin-bottom: 25px;
+}

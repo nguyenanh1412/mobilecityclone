@@ -1,0 +1,119 @@
+/* HEADER */
+.red {
+    background-color: #c69a39;
+  }
+  
+  .white {
+    background-color: white;
+  }
+  
+  .img {
+    height: 60%;
+  }
+  
+  .color {
+    color: #c69a39 !important;
+    border: none !important;
+    margin-top: -4px;
+    cursor: pointer;
+  }
+  
+  .color:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .hotline {
+    display: flex;
+  
+  }
+  
+  .hotline>div {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .hotline div:last-child {
+    color: #c69a39;
+    font-size: 15px;
+  }
+  
+  .login {
+    display: flex;
+  }
+  
+  .login>div {
+    padding: 0 3px;
+    cursor: pointer;
+  }
+  
+  .center {
+    color: rgba(198, 154, 57, 0.5);
+  }
+  
+  .nav {
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0 !important;
+    flex-direction: column;
+  }
+  
+  .nav>p {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: white;
+    margin: 0;
+    padding-top: 15px;
+  }
+  
+  .font {
+    font-size: 320%;
+    color: white;
+  }
+  
+  .wrap-nav {
+    height: 100%;
+  }
+  
+  .nav:hover {
+    border-bottom: white solid 5px;
+    border-bottom-width: 5px;
+    transition: border-width .2s ease-in-out;
+    cursor: pointer;
+  }
+  .active {
+    border-bottom: white solid 5px;
+    border-bottom-width: 5px;
+    transition: border-width .2s ease-in-out;
+    cursor: pointer;
+  }
+  .btn-menu-res {
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 40px;
+  }
+  @media only screen and (max-width: 1200px) and (min-width: 992px){
+    .form-control{
+      width: 90% !important;
+    }
+  }
+
+  @media only screen and (max-width: 992px) and (min-width: 768px){
+    .form-control{
+      width: 90% !important;
+    }
+  }
+  @media only screen and (max-width: 576px) {
+    .name {
+      font-size: 15px;
+    }
+    .item {
+      padding: 5px !important;
+    }
+    .product-item-info>p:last-child, .product-item-info>p:nth-child(4){
+      font-size: 13px !important;
+    }
+  }

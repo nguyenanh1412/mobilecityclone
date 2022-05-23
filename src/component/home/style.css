@@ -1,0 +1,16 @@
+p {
+    margin: 0;
+}
+
+.slide {
+    margin: 5px 0;
+}
+
+.hot-product>p,
+.hot-pk>p {
+    color: #c69a39;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+

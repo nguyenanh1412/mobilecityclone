@@ -1,0 +1,96 @@
+/* sắp xếp */
+.sort>div .sort-table {
+    position: absolute;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    border: #ebecec solid 1px;
+    box-shadow:  0px 4px 15px -5px rgb(0 0 0 / 75%);
+    list-style-type: none;
+    transform: translateX(-1000%);
+    opacity: 0;
+    cursor: pointer;
+}
+
+.sort-table>li:hover {
+    background-color: #c69a39;
+    color: white;
+}
+.sort-table>li {
+    padding: 5px 10px;
+}
+
+.sort>div:hover .sort-table {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: all .3s ease-in;
+    cursor: pointer;
+}
+
+.sort {
+    position: relative;
+}
+.sort>div {
+    cursor: pointer;
+}
+.cheked {
+    background-color: #c69a39;
+    color: white;
+}
+
+/* lọc */
+.filter>ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.filter>ul>li {
+    padding-right: 5px;
+}
+
+/* lọc theo giá */
+.filter-price,
+.filter-name {
+    position: relative;
+    cursor: pointer;
+}
+
+.filter-price>ul,
+.filter-name>ul {
+    transform: translateX(-300%);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    width: 150%;
+    border: #ebecec solid 1px;
+    box-shadow:  0px 4px 15px -5px rgb(0 0 0 / 75%);
+    opacity: 0;
+    cursor: pointer;
+
+}
+.filter-price>ul>li,
+.filter-name>ul>li{
+    padding: 5px 10px;
+}
+.filter-price>ul>li:hover,
+.filter-name>ul>li:hover{
+    background-color: #c69a39;
+    color: white;
+}
+
+.filter-price:hover>ul,
+.filter-name:hover>ul {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: all .3s ease-in;
+    cursor: pointer;
+}
+.filter-price>i,
+.filter-name>i{
+    margin-left: 5px;
+}

@@ -28,15 +28,13 @@ import News from './component/news/News';
 import Insurance from './component/insurance/insurance';
 import Product from './component/public/product';
 import Form from './component/form lh/Form';
+import FormAPI from './API/formAPI';
 
 function App() {
   const [allItemTelephone, setAllItemTelephone] = useState([])
-  useEffect(() => {
-    TelePhone.getAll().then(res => setAllItemTelephone(res))
-  }, [])
-  //props NEWS
   const [news, setNews] = useState([])
   useEffect(() => {
+    TelePhone.getAll().then(res => setAllItemTelephone(res))
     NewAPI.getAll().then(res => setNews(res))
   }, [])
   // xem sp
@@ -47,6 +45,16 @@ function App() {
   const handleHideMenu = () => {
     setShowMenu(false)
   }
+  //gửi thông tin sửa chữa
+  const handleFix = async (data) => {
+    await FormAPI.add(data);
+    await FormAPI.getAll().then(res => setForm(res))
+  }
+  //lấy form
+  const [form, setForm] = useState([])
+  useEffect(() => {
+    FormAPI.getAll().then(res => setForm(res))
+  }, [])
 
 
   return (
@@ -103,7 +111,7 @@ function App() {
                   </NavLink>
                   <NavLink to="/insurance" className="col-lg  nav">
                     <i className=" font fa-solid fa-shield-heart"></i>
-                    <p>tra cứu bh</p>
+                    <p> admin</p>
                   </NavLink>
                 </div>
               </div>
@@ -135,38 +143,38 @@ function App() {
                   }}><i class="fa-solid fa-xmark"></i></div>
               </div>
               <div className='row'>
-                <NavLink  to="/" href="" className="  nav">
-                  <p style={{color:'black', fontSize:'20px'}} onClick={handleHideMenu}>trang chủ</p>
+                <NavLink to="/" href="" className="  nav">
+                  <p style={{ color: 'black', fontSize: '20px' }} onClick={handleHideMenu}>trang chủ</p>
                 </NavLink>
               </div>
               <div className='row'>
-                <NavLink  to="/phone" href="" className="  nav">
-                  <p style={{color:'black', fontSize:'20px'}} onClick={handleHideMenu}>điện thoại</p>
+                <NavLink to="/phone" href="" className="  nav">
+                  <p style={{ color: 'black', fontSize: '20px' }} onClick={handleHideMenu}>điện thoại</p>
                 </NavLink>
               </div>
               <div className='row'>
-                <NavLink  to="/tablet" className="  nav">
-                  <p style={{color:'black', fontSize:'20px'}} onClick={handleHideMenu}>tablet</p>
+                <NavLink to="/tablet" className="  nav">
+                  <p style={{ color: 'black', fontSize: '20px' }} onClick={handleHideMenu}>tablet</p>
                 </NavLink>
               </div>
               <div className='row'>
-                <NavLink  to="/accessory" className="  nav">
-                  <p style={{color:'black', fontSize:'20px'}} onClick={handleHideMenu}>phụ kiện</p>
+                <NavLink to="/accessory" className="  nav">
+                  <p style={{ color: 'black', fontSize: '20px' }} onClick={handleHideMenu}>phụ kiện</p>
                 </NavLink>
               </div>
               <div className='row'>
-                <NavLink  to='/fix' className="  nav">
-                  <p style={{color:'black', fontSize:'20px'}} onClick={handleHideMenu}>sửa chữa</p>
+                <NavLink to='/fix' className="  nav">
+                  <p style={{ color: 'black', fontSize: '20px' }} onClick={handleHideMenu}>sửa chữa</p>
                 </NavLink>
               </div>
               <div className='row'>
-                <NavLink  to="/news" className="  nav">
-                  <p style={{color:'black', fontSize:'20px'}} onClick={handleHideMenu}>tin tức</p>
+                <NavLink to="/news" className="  nav">
+                  <p style={{ color: 'black', fontSize: '20px' }} onClick={handleHideMenu}>tin tức</p>
                 </NavLink>
               </div>
               <div className='row'>
-                <NavLink  to="/insurance" className="nav">
-                  <p style={{color:'black', fontSize:'20px'}} onClick={handleHideMenu}>tra cứu bh</p>
+                <NavLink to="/insurance" className="nav">
+                  <p style={{ color: 'black', fontSize: '20px' }} onClick={handleHideMenu}>tra cứu bh</p>
                 </NavLink>
               </div>
             </div>
@@ -184,12 +192,13 @@ function App() {
             <Route path="/accessory" element={<Accessory allItemTelephone={allItemTelephone} />} />
             <Route path="/fix" element={<Fix allItemTelephone={allItemTelephone} />} />
             <Route path="/news" element={<News news={news[0]} />} />
-            <Route path="/insurance" element={<Insurance />} />
+            <Route path="/insurance" element={<Insurance form={form} />} />
             {allItemTelephone.map(it => {
               return (
                 <Route key={it.id} path={`/product/${it.id}`} element={<Product
                   allItemTelephone={allItemTelephone}
                   id={it.id}
+                  handleFix={handleFix}
                 />} />
               )
             })}

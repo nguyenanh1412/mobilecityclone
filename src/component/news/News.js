@@ -7,7 +7,7 @@ import './style.css'
 
 function News(props) {
     let { news } = props
-    console.log(news.lastest)
+    console.log(news);
     let hightNew = news.lastest === undefined ? undefined : { ...news }.lastest.sort((a, b) => b.views - a.views)[0]
 
     const [view, setView] = useState(4)
@@ -26,7 +26,6 @@ function News(props) {
         }
         setView(pre => pre + 4)
     }
-    console.log(hightNew);
     return (
         <motion.div
             animate={{ translateX: [100, 0], opacity: [0, 1] }}

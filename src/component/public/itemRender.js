@@ -22,7 +22,6 @@ function IitemRender(props) {
         setShowMore(prv => prv + 4)
 
     }
-    console.log(props.allItem);
     return (
         <>
             <div className='row' >

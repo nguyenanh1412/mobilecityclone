@@ -11,8 +11,6 @@ function Product(props) {
     let arrColor = [{ name: 'white-color', color: 'Màu trắng' }, { name: 'black-color', color: 'Màu đen' }, { name: 'blue-color', color: 'Màu xanh' }]
     const [check, setCheck] = useState('')
     const [arrBuy, setArrBuy] = useState({})
-    console.log(arrBuy);
-    console.log(arrBuy);
     const [color, setColor] = useState('')
     let handleColor = (ev, color) => {
         setArrBuy({ ...arrBuy, "color": color })
@@ -54,7 +52,7 @@ function Product(props) {
             draggable: true,
             progress: undefined,
         });
-        console.log(data);
+        props.handleFix({...data,status:'pending'})
         reset()
     };
     const [buy2, setBuy2] = useState(false)
@@ -66,7 +64,6 @@ function Product(props) {
             autoClose: 5000,
             hideProgressBar: true,
         });
-        setShowBuy(false)
         setShowBuy(false)
         reset2()
     }
@@ -106,7 +103,6 @@ function Product(props) {
             hideProgressBar: true,
         });
     }
-    console.log(itemRender.price[0].replace(/\./g, '') * 1 + 650000)
     return (
         <>
             <ToastContainer
@@ -306,7 +302,7 @@ function Product(props) {
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Mô tả tình trạng hỏng hóc</label>
-                                    <textarea {...register("status")} class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea {...register("text")} class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Gửi</button>
                             </form>

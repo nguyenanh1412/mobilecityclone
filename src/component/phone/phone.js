@@ -1,31 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
-import PropTypes from 'prop-types';
 import './style.css'
 import IitemRender from '../public/itemRender';
 
-Phone.propTypes = {
 
-};
 
 function Phone(props) {
     let { allItemTelephone, pk, fix } = props
+    console.log(allItemTelephone);
     const [arrRender, setArrRender] = useState([])
-    //sắp xếp theo giá
-    let arrSort = ['Tất cả', 'Giá thấp tới cao', 'Giá cao tới thấp']
-    const [sort, setSort] = useState('Tất cả')
-    let handleSort = (ev) => {
-        // setSort(ev.target.innerHTML);
-        // if (ev.target.id === '0') {
-        //     setArrRender([...allItemTelephone])
-        // }
-        // if (ev.target.id === '1') {
-        //     setArrRender(([...arrRender].sort((a, b) => Number(a.price[0].split('.').join('') - Number(b.price[0].split('.').join(''))))))
-        // }
-        // if (ev.target.id === '2') {
-        //     setArrRender(([...arrRender].sort((a, b) => Number(b.price[0].split('.').join('') - Number(a.price[0].split('.').join(''))))))
-        // }
-    }
     useEffect(() => {
         setArrRender([...allItemTelephone].filter(it=>it.type===props.type))
     }, [allItemTelephone])

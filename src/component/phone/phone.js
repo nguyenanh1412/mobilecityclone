@@ -7,12 +7,10 @@ import IitemRender from '../public/itemRender';
 
 function Phone(props) {
     let { allItemTelephone, pk, fix } = props
-    console.log(allItemTelephone);
     const [arrRender, setArrRender] = useState([])
     useEffect(() => {
         setArrRender([...allItemTelephone].filter(it=>it.type===props.type))
     }, [allItemTelephone])
-    console.log(arrRender);
     //lọc theo giá
     const [conditionalName, setConditionalName] = useState([])
     const [conditionalPrice, setConditionalPrice] = useState([])
@@ -93,40 +91,29 @@ function Phone(props) {
                             <li style={{ fontWeight: 'bold' }}>Tìm theo</li>
                             <li className='filter-price'>
                                 Mức giá
-                                <i class="fa-solid fa-angle-down"></i>
+                                <i className="fa-solid fa-angle-down"></i>
                                 <ul>
                                     {arrFilterPrice.map((it, idx) => {
                                         return (
-                                            <li key={idx} className={filterPrice === it.name ? 'cheked' : ''} onClick={handleFilterPrice}>{it.name}</li>
+                                            <li key={idx*Math.random()} className={filterPrice === it.name ? 'cheked' : ''} onClick={handleFilterPrice}>{it.name}</li>
                                         )
                                     })}
                                 </ul>
                             </li>
                             <li className='filter-name'>
                                 Hãng sản xuất
-                                <i class="fa-solid fa-angle-down"></i>
+                                <i className="fa-solid fa-angle-down"></i>
                                 <ul>
                                     {arrFilterName.map((it, idx) => {
                                         return (
-                                            <li key={idx} className={filterName === it.name ? 'cheked' : ''} onClick={handleFilterName}>{it.name}</li>
+                                            <li key={idx*Math.random()} className={filterName === it.name ? 'cheked' : ''} onClick={handleFilterName}>{it.name}</li>
                                         )
                                     })}
                                 </ul>
                             </li>
                         </ul>
                     </div>
-                    {/* <div className='col-lg-6 sort d-flex justify-content-end'>
-                        <div>
-                            Sắp xếp theo giá
-                            <ul className='sort-table'>
-                                {arrSort.map((it, idx) => {
-                                    return (
-                                        <li id={idx} key={idx} className={sort === it ? 'cheked' : ''} onClick={handleSort}>{it}</li>
-                                    )
-                                })}
-                            </ul>
-                        </div>
-                    </div> */}
+                    
                 </div>
                 <div className='row d-flex justify-content-center'>
                     {arrRender.length === 0

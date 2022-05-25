@@ -52,7 +52,7 @@ function Product(props) {
             draggable: true,
             progress: undefined,
         });
-        props.handleFix({...data,status:'pending'})
+        props.handleFix({...data,status:'Tiếp nhận'})
         reset()
     };
     const [buy2, setBuy2] = useState(false)
@@ -125,11 +125,11 @@ function Product(props) {
                             <div className='row'>
                                 <div className='col-lg d-flex'>
                                     <div>
-                                        <p><i class="fa-solid fa-check"></i> Sản phẩm: {itemRender.name}</p>
-                                        <p className={itemRender.type === 'pk' ? 'd-none' : ''}><i class="fa-solid fa-check"></i> Màu sắc: {arrBuy.color}</p>
-                                        <p className={itemRender.type === 'pk' ? 'd-none' : ''}><i class="fa-solid fa-check"></i> Bộ nhớ: {arrBuy.stoge}</p>
-                                        <p className={itemRender.type === 'pk' ? 'd-none' : ''}><i class="fa-solid fa-check"></i> Gói bảo hành: {!arrBuy.BVH && arrBuy.BHV === undefined ? 'Bảo hành mặc định' : 'Bảo hành vàng'}</p>
-                                        <p><i class="fa-solid fa-check"></i> Tổng: {stoge === '8-128GB'
+                                        <p><i className="fa-solid fa-check"></i> Sản phẩm: {itemRender.name}</p>
+                                        <p className={itemRender.type === 'pk' ? 'd-none' : ''}><i className="fa-solid fa-check"></i> Màu sắc: {arrBuy.color}</p>
+                                        <p className={itemRender.type === 'pk' ? 'd-none' : ''}><i className="fa-solid fa-check"></i> Bộ nhớ: {arrBuy.stoge}</p>
+                                        <p className={itemRender.type === 'pk' ? 'd-none' : ''}><i className="fa-solid fa-check"></i> Gói bảo hành: {!arrBuy.BVH && arrBuy.BHV === undefined ? 'Bảo hành mặc định' : 'Bảo hành vàng'}</p>
+                                        <p><i className="fa-solid fa-check"></i> Tổng: {stoge === '8-128GB'
                                             ? `${itemRender.price[1].replace(/\./g, '') * 1 + `${tick === 'tick' ? 650000 : 0}` * 1}`.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
                                             : `${itemRender.price[0].replace(/\./g, '') * 1 + `${tick === 'tick' ? 650000 : 0}` * 1}`.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}
                                             đ
@@ -138,18 +138,18 @@ function Product(props) {
                                 </div>
                             </div>
                             <div className='row'>
-                                <div class="mb-3 col-lg">
-                                    <label for="exampleFormControlInput1" class="form-label">Tên khách hàng:</label>
+                                <div className="mb-3 col-lg">
+                                    <label for="exampleFormControlInput1" className="form-label">Tên khách hàng:</label>
                                     <input
-                                        type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
+                                        type="text" className="form-control" id="exampleFormControlInput1" placeholder=""
                                         {...register2("names", { required: true })}
                                     />
                                     {errors2.names && <p style={{ color: 'red', fontSize: 15 }}>*Trường này không thể bỏ trống</p>}
                                 </div>
-                                <div class="mb-3 col-lg">
-                                    <label for="exampleFormControlInput1" class="form-label">Số điện thoại:</label>
+                                <div className="mb-3 col-lg">
+                                    <label for="exampleFormControlInput1" className="form-label">Số điện thoại:</label>
                                     <input
-                                        type="number" class="form-control" id="exampleFormControlInput1" placeholder=""
+                                        type="number" className="form-control" id="exampleFormControlInput1" placeholder=""
                                         {...register2("numbers", { required: true })}
                                     />
                                     {errors2.numbers && <p style={{ color: 'red', fontSize: 15 }}>*Trường này không thể bỏ trống</p>}
@@ -157,10 +157,10 @@ function Product(props) {
                             </div>
                             <div className='row'>
                                 <div className='col-lg'>
-                                    <div class="mb-3 col-lg">
-                                        <label for="exampleFormControlInput1" class="form-label">Địa chỉ:</label>
+                                    <div className="mb-3 col-lg">
+                                        <label for="exampleFormControlInput1" className="form-label">Địa chỉ:</label>
                                         <input
-                                            type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
+                                            type="text" className="form-control" id="exampleFormControlInput1" placeholder=""
                                             {...register2("address", { required: true })}
                                         />
                                         {errors2.address && <p style={{ color: 'red', fontSize: 15 }}>*Trường này không thể bỏ trống</p>}
@@ -169,10 +169,10 @@ function Product(props) {
                             </div>
                             <div className='row'>
                                 <div className='col-lg'>
-                                    <div class="mb-3 ">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Lưu ý cho shop</label>
+                                    <div className="mb-3 ">
+                                        <label for="exampleFormControlTextarea1" className="form-label">Lưu ý cho shop</label>
                                         <textarea
-                                            class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                            className="form-control" id="exampleFormControlTextarea1" rows="3"
                                             {...register2("text")}
                                         ></textarea>
                                     </div>
@@ -236,7 +236,7 @@ function Product(props) {
                                             <td className='d-flex align-items-center'>
                                                 {itemRender.stoge.map(it => {
                                                     return (
-                                                        <div key={it} onClick={(ev) => handleStoge(ev, it)} className={`stoge ${stoge.includes(it) ? 'tick' : ''}`}>{it}</div>
+                                                        <div key={it*Math.random()} onClick={(ev) => handleStoge(ev, it)} className={`stoge ${stoge.includes(it) ? 'tick' : ''}`}>{it}</div>
                                                     )
                                                 })}
                                                 <div style={{ paddingLeft: 10 }}>{stoge}</div>
@@ -285,26 +285,26 @@ function Product(props) {
                             <p>Để nhận được dịch vụ sửa chữa cũng như những ưu đãi tốt nhất bạn vui lòng điền vào form kiên hệ sau.</p>
 
                             <form onSubmit={handleSubmit(onSubmit)}>
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Họ tên</label>
-                                    <input {...register("name", { required: true })} type="text" class="form-control" id="exampleInputPassword1" />
+                                <div className="mb-3">
+                                    <label for="exampleInputPassword1" className="form-label">Họ tên</label>
+                                    <input {...register("name", { required: true })} type="text" className="form-control" id="exampleInputPassword1" />
                                     {errors.name && <p style={{ color: 'red', fontSize: 15 }}>*Trường này không thể bỏ trống</p>}
                                 </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Số điện thoại</label>
-                                    <input {...register("number", { required: true })} type="number" class="form-control" id="exampleInputPassword1" />
+                                <div className="mb-3">
+                                    <label for="exampleInputPassword1" className="form-label">Số điện thoại</label>
+                                    <input {...register("number", { required: true })} type="number" className="form-control" id="exampleInputPassword1" />
                                     {errors.number && <p style={{ color: 'red', fontSize: 15 }}>*Trường này không thể bỏ trống</p>}
                                 </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                    <input {...register("email", { required: true })} type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <div className="mb-3">
+                                    <label for="exampleInputEmail1" className="form-label">Email address</label>
+                                    <input {...register("email", { required: true })} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                                     {errors.email && <p style={{ color: 'red', fontSize: 15 }}>*Trường này không thể bỏ trống</p>}
                                 </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Mô tả tình trạng hỏng hóc</label>
-                                    <textarea {...register("text")} class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <div className="mb-3">
+                                    <label for="exampleInputPassword1" className="form-label">Mô tả tình trạng hỏng hóc</label>
+                                    <textarea {...register("text")} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Gửi</button>
+                                <button type="submit" className="btn btn-primary">Gửi</button>
                             </form>
                         </div>
                     </div>

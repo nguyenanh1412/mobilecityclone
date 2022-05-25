@@ -1,10 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Phone from '../phone/phone';
 
-Fix.propTypes = {
-    
-};
+
 
 function Fix(props) {
     let {allItemTelephone}= props

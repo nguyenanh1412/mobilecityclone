@@ -7,7 +7,6 @@ import './style.css'
 
 function News(props) {
     let { news } = props
-    console.log(news);
     let hightNew = news.lastest === undefined ? undefined : { ...news }.lastest.sort((a, b) => b.views - a.views)[0]
 
     const [view, setView] = useState(4)
@@ -51,7 +50,7 @@ function News(props) {
                                     return (
                                         <motion.div
                                             animate={{ opacity: [0, 1] }}
-                                            key={it.id}
+                                            key={it.id*Math.random()}
                                             className='poiter'
                                         >
                                             <div className='row title'>
@@ -66,7 +65,7 @@ function News(props) {
                                                     <div className='row'>
                                                         <div className='col-lg d-flex justify-content-between'>
                                                             <div className='time'> {it.time}</div>
-                                                            <div className='time'><i class="fa-solid fa-eye"></i> {it.views}</div>
+                                                            <div className='time'><i className="fa-solid fa-eye"></i> {it.views}</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -98,6 +97,7 @@ function News(props) {
                                 <motion.div
                                     animate={{ translateX: [100, 0], opacity: [0, 1] }}
                                     className='row newTechnology poiter'>
+                                    key={it.id*Math.random()}
                                     <div className='col-lg-4'>
                                         <img className='w-100' src={it.img} />
                                     </div>
@@ -111,7 +111,7 @@ function News(props) {
                                         <div className='row'>
                                             <div className='col-lg d-flex justify-content-between'>
                                                 <div className='time'> {it.time}</div>
-                                                <div className='time'><i class="fa-solid fa-eye"></i> {it.views}</div>
+                                                <div className='time'><i className="fa-solid fa-eye"></i> {it.views}</div>
                                             </div>
                                         </div>
 
@@ -130,11 +130,12 @@ function News(props) {
                                 <motion.div
                                     animate={{ translateX: [100, 0], opacity: [0, 1] }}
                                     className='row poiter'>
+                                    key={it.id*Math.random()}
                                     <div className="col-lg">
                                         <div>
                                             <img className='w-100' src={it.img} />
                                             <p style={{ padding: 0 }} className='title'>{it.heading}</p>
-                                            <p className='view'><i class="fa-solid fa-eye"></i> {it.views}</p>
+                                            <p className='view'><i className="fa-solid fa-eye"></i> {it.views}</p>
                                         </div>
                                     </div>
                                 </motion.div>

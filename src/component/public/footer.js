@@ -44,35 +44,35 @@ function Footer(props) {
                             Hà Nội
                         </p>
 
-                        <p>
+                        <div>
                             <p>120 Thái Hà, Q. Đống Đa <a href='./'>Xem bản đồ</a> Điện thoại: 0969.120.120 (Bán hàng) - 037.437.9999 (Kỹ thuật)</p>
 
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             <p>398 Cầu Giấy, Q. Cầu Giấy <a href='./'>Xem bản đồ</a> Điện thoại: 096.1111.398 (Bán hàng) - 037.437.9999 (Kỹ thuật)</p>
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             <p>42 Phố Vọng, Hai Bà Trưng <a href='./'> Xem bản đồ</a> Điện thoại: 0979.884242 (Bán hàng) - 037.437.9999 (Kỹ thuật)</p>
-                        </p>
+                        </div>
 
                         <p className='bold'>
                             Hồ Chí Minh
                         </p>
 
-                        <p>
+                        <div>
                             <p>123 Trần Quang Khải, Q.1<a href='./'> Xem bản đồ</a> Điện thoại: 0965.123.123 - 0969.520.520</p>
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             <p>602 Lê Hồng Phong, P.10, Q.10 <a href='./'>Xem bản đồ</a> Điện thoại: 097.1111.602 - 097.3333.602</p>
-                        </p>
+                        </div>
 
                         <p className='bold'>
                             Đà Nẵng
                         </p>
 
-                        <p>
+                        <div>
                             <p>97 Hàm Nghi, Q.Thanh Khê <a href='./'>Xem bản đồ</a> Điện thoại: 096.123.9797 - 097.123.9797</p>
-                        </p>
+                        </div>
                     </div>
                     <div className='col-lg-3'>
                         <p className='head-footer'><i className="fa-solid fa-circle-question"></i> QUY ĐỊNH - CHÍNH SÁCH</p>

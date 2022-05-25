@@ -25,9 +25,8 @@ import TelePhone from './API/telePhone'
 import NewAPI from './API/newAPI';
 import Fix from './component/fix/fix';
 import News from './component/news/News';
-import Insurance from './component/insurance/insurance';
+import Insurance from './component/admin/insurance';
 import Product from './component/public/product';
-import Form from './component/form lh/Form';
 import FormAPI from './API/formAPI';
 
 function App() {
@@ -55,6 +54,14 @@ function App() {
   useEffect(() => {
     FormAPI.getAll().then(res => setForm(res))
   }, [])
+  //xoá yêu cầu
+  const handleDelete = (id) => {
+    FormAPI.remove(id)
+  }
+  //update trạng thái
+  const handleUpdateStatus = (val, id) => {
+    FormAPI.update(id, { status: val })
+  }
 
 
   return (
@@ -83,7 +90,7 @@ function App() {
                   </div>
                   {/* menu responsive */}
                   <div className='col-sm-2 d-flex col-md-2 col-sm-2 col-2 align-items-center d-lg-none d-sm-flex justify-content-end'>
-                    <button onClick={handleShowMenu} className='btn-menu-res'><i class="fa-solid fa-bars"></i></button>
+                    <button onClick={handleShowMenu} className='btn-menu-res'><i className="fa-solid fa-bars"></i></button>
                   </div>
                 </div>
               </div>
@@ -140,7 +147,7 @@ function App() {
                   style={{
                     textAlign: 'end',
                     fontSize: 50,
-                  }}><i class="fa-solid fa-xmark"></i></div>
+                  }}><i className="fa-solid fa-xmark"></i></div>
               </div>
               <div className='row'>
                 <NavLink to="/" href="" className="  nav">
@@ -174,7 +181,7 @@ function App() {
               </div>
               <div className='row'>
                 <NavLink to="/insurance" className="nav">
-                  <p style={{ color: 'black', fontSize: '20px' }} onClick={handleHideMenu}>tra cứu bh</p>
+                  <p style={{ color: 'black', fontSize: '20px' }} onClick={handleHideMenu}>admin</p>
                 </NavLink>
               </div>
             </div>
@@ -192,17 +199,19 @@ function App() {
             <Route path="/accessory" element={<Accessory allItemTelephone={allItemTelephone} />} />
             <Route path="/fix" element={<Fix allItemTelephone={allItemTelephone} />} />
             <Route path="/news" element={<News news={news[0]} />} />
-            <Route path="/insurance" element={<Insurance form={form} />} />
+            <Route path="/insurance" element={<Insurance
+              form={form}
+              handleDelete={handleDelete}
+            />} />
             {allItemTelephone.map(it => {
               return (
-                <Route key={it.id} path={`/product/${it.id}`} element={<Product
+                <Route key={it.id*Math.random()} path={`/product/${it.id}`} element={<Product
                   allItemTelephone={allItemTelephone}
                   id={it.id}
                   handleFix={handleFix}
                 />} />
               )
             })}
-            <Route path="/form" element={<Form />} />
 
           </Routes>
         </AnimatePresence>

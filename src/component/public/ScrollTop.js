@@ -36,7 +36,7 @@ const ScrollButton = () => {
             <motion.button
                 animate={hide}
                 className='btn btn-primary btn-scroll' onClick={scrollToTop} >
-                <i class="fa-solid fa-angles-up"></i>
+                <i className="fa-solid fa-angles-up"></i>
             </motion.button>
         </AnimatePresence>
     );
